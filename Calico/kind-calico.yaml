@@ -1,0 +1,11 @@
+# References:
+# https://godoc.org/sigs.k8s.io/kind/pkg/internal/apis/config#Cluster
+# https://godoc.org/sigs.k8s.io/kind/pkg/internal/apis/config#Networking
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+networking:
+  # disable kindnet, so we can install our own CNI once cluster is created
+  disableDefaultCNI: true
+  # set the pod subnet to Calico’s default subnet
+  podSubnet: "192.168.0.0/16"

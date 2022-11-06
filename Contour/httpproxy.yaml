@@ -1,0 +1,18 @@
+# httpproxy.yaml
+#
+#
+# Contour HTTPProxy
+#
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: basic
+spec:
+  virtualhost:
+    fqdn: localhost
+  routes:
+    - conditions:
+      - prefix: /echo
+      services:
+        - name: echo-service
+          port: 8080
